@@ -24,8 +24,9 @@ tenChallegne
 
 App to create simple logo. It utilizes inquirer to prompt the user within the command line for how they would like their logo to look like. Once the user answers all prompts, then an SVG file is written using their selections to generate a logo.
 
-## Live Screen Recording of Application Functionality
+## Screen Recording of Application Functionality
 
+: <a href="https://drive.google.com/file/d/10k0QawyKdCN8r3gTQojiYraF6a9OfKU1/view"> link to VIDEO > </a>
 
 
 ## Examples
