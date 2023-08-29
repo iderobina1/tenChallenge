@@ -1,7 +1,7 @@
 // Import required modules and classes
 const inquirer = require("inquirer");
 const fs = require("fs");
-const { Triangle, Square, Circle } = require("./lib/shapes");
+const { Circle, Square, Triangle } = require("./lib/shapes");
 
 // Function to generate SVG string based on user answers
 function generateSVG(answers) {
