@@ -1,94 +1,65 @@
-// Inquirer (node package manager) import
+// Import required modules and classes
 const inquirer = require("inquirer");
-
-// File system module (node package manager) import
 const fs = require("fs");
-
-// Importing classes from ./lib/shapes directory
 const { Triangle, Square, Circle } = require("./lib/shapes");
 
-// Function writes the SVG file using user answers from inquirer prompts
-function writeToFile(fileName, answers) {
-  // File starts as an empty string
-  let svgString = "";
-  // Sets width and height of logo container
-  svgString =
-    '<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">';
-  // <g> tag wraps <text> tag so that user font input layers on top of polygon -> not behind
-  svgString += "<g>";
-  // Takes user input for shape choice and inserts it into SVG file
-  svgString += `${answers.shape}`;
-
-  // Conditional check takes users input from choices array and then adds polygon properties and shape color to SVG string
-  let shapeChoice;
+// Function to generate SVG string based on user answers
+function generateSVG(answers) {
+  let svgString = `
+<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+  <g>`;
+  
+  // Generate shape based on user choice
+  let shapeString, shapeChoice;
   if (answers.shape === "Triangle") {
+    shapeString = `<polygon points="150, 18 244, 182 56, 182" fill="${answers.shapeBackgroundColor}"/>`;
     shapeChoice = new Triangle();
-    svgString += `<polygon points="150, 18 244, 182 56, 182" fill="${answers.shapeBackgroundColor}"/>`;
   } else if (answers.shape === "Square") {
+    shapeString = `<rect x="73" y="40" width="160" height="160" fill="${answers.shapeBackgroundColor}"/>`;
     shapeChoice = new Square();
-    svgString += `<rect x="73" y="40" width="160" height="160" fill="${answers.shapeBackgroundColor}"/>`;
   } else {
+    shapeString = `<circle cx="150" cy="115" r="80" fill="${answers.shapeBackgroundColor}"/>`;
     shapeChoice = new Circle();
-    svgString += `<circle cx="150" cy="115" r="80" fill="${answers.shapeBackgroundColor}"/>`;
   }
+  
+  // Combine SVG shape and text
+  svgString += `${shapeString}
+    <text x="150" y="130" text-anchor="middle" font-size="40" fill="${answers.textColor}">${answers.text}</text>
+  </g>
+</svg>`;
 
-  // <text> tag gives rise to text alignment, text-content/text-color taken in from user prompt and gives default font size of "40"
-  svgString += `<text x="150" y="130" text-anchor="middle" font-size="40" fill="${answers.textColor}">${answers.text}</text>`;
-  // Closing </g> tag
-  svgString += "</g>";
-  // Closing </svg> tag
-  svgString += "</svg>";
-
-  // Using file system module to generate svg file, takes in file name given in the promptUser function, the svg string, and a ternary operator which handles logging any errors, or a "Generated logo.svg" message to the console  
-  fs.writeFile(fileName, svgString, (err) => {
-    err ? console.log(err) : console.log("Generated logo.svg");
-  });
+  return svgString;
 }
 
-// This function utilizes inquirer .prompt to prompt the user to answer questions in the command line and save user input
+// Function to prompt the user for input
 function promptUser() {
   inquirer
     .prompt([
       // Text prompt
-      {
-        type: "input",
-        message:
-          "What text would you like you logo to display?",
-        name: "text",
-      },
+      { type: "input", message: "Enter text for your logo (max 3 characters):", name: "text" },
       // Text color prompt
-      {
-        type: "input",
-        message:
-          "Choose text color (Enter color keyword OR a hexadecimal number)",
-        name: "textColor",
-      },
+      { type: "input", message: "Enter text color:", name: "textColor" },
       // Shape choice prompt
-      {
-        type: "list",
-        message: "What shape would you like the logo to render? (use arrow keys)",
-        choices: ["Triangle", "Square", "Circle"],
-        name: "shape",
-      },
+      { type: "list", message: "Select a shape for your logo:", choices: ["Triangle", "Square", "Circle"], name: "shape" },
       // Shape color prompt
-      {
-        type: "input",
-        message:
-          "Choose shapes color (Enter color keyword OR a hexadecimal number)",
-        name: "shapeBackgroundColor",
-      },
+      { type: "input", message: "Enter shape color:", name: "shapeBackgroundColor" }
     ])
     .then((answers) => {
-      // Error handling for text prompt (user must enter 3 characters or less for logo to generate)
       if (answers.text.length > 3) {
-        console.log("Must enter a value of no more than 3 characters");
+        console.log("Text must be 3 characters or less.");
         promptUser();
       } else {
-        // Calling write file function to generate SVG file
-        writeToFile("logo.svg", answers);
+        const svgString = generateSVG(answers);
+        fs.writeFile("logo.svg", svgString, (err) => {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log("Generated logo.svg");
+          }
+        });
       }
     });
 }
 
-// Calling promptUser function so inquirer prompts fire off when application is ran
+// Start the promptUser function to initiate user input
 promptUser();
