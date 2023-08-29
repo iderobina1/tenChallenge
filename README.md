@@ -28,25 +28,15 @@ App to create simple logo. It utilizes inquirer to prompt the user within the co
 
 ## Live Screen Recording of Application Functionality
 
-https://drive.google.com/file/d/1LLAhUArgzn2YfI_or0DXp4N9ZcsTPUdZ/view
 
-## Screenshots
-
-Logo Generation
-
-![Screenshot1-week-10-challenge](https://user-images.githubusercontent.com/120127903/232142589-86370721-ab54-4ff4-af4d-46a40fbb5d5f.png)
-
-![Screenshot2-week-10-challenge](https://user-images.githubusercontent.com/120127903/232142612-728f43cb-174a-4370-9847-e3ebb10ee23b.png)
-
-![Screenshot3-week-10-challenge](https://user-images.githubusercontent.com/120127903/232144018-62741d39-3e09-492c-be82-125e38f91521.png)
+## Examples
 
 Examples of Generated Logos
 
-<img width="226" alt="Screenshot4-week-10-challenge" src="https://user-images.githubusercontent.com/120127903/232142654-9a5a9937-e831-4838-86a1-4323c7b9cc39.png">
+Triangle: <a href="https://drive.google.com/file/d/1Eqxp2rilQvd2U3z5-SxJ65Hlb_hk6t50/view?usp=drive_link"> link to triangle> </a>
 
-<img width="245" alt="Screenshot5-week-10-challenge" src="https://user-images.githubusercontent.com/120127903/232142705-29cd92d9-1c12-46ce-a81a-64893ac15a00.png">
+Circle: <a href = "https://drive.google.com/file/d/1hY7xSENdIYqzcsUEWsUavrjREJMUPkaR/view?usp=drive_link" >link to circle  </a>
 
-<img width="214" alt="Screenshot6-week-10-challenge" src="https://user-images.githubusercontent.com/120127903/232142727-5c9ce441-1ca7-443a-bb5f-391b3f0003cf.png">
 
 ## Technologies Used
 
@@ -55,7 +45,7 @@ This project is powered by Node.js v16.20.1, utilizes inquirer v8.2.4 (node pack
 ## Installation
 
 1. Clone the repo:
-   git clone https://github.com/rmessett15/SVG-Logo-Maker.git
+   git clone: 
 
 2. Open in VS Code. If you do not have VS code you must install it.
 
@@ -84,11 +74,8 @@ To run unit testing, open the terminal, and use the command npm run test.
 
 As of now there is one test suite with three tests. The test suite is checking for a render() method to return a string for the corresponding SVG file with the given shape color.
 
-![Screenshot7-week-10-challenge](https://user-images.githubusercontent.com/120127903/232142736-a2ed7de2-b924-4536-9f51-e9c6cd5fb1db.png)
 
-![Screenshot8-week-10-challenge](https://user-images.githubusercontent.com/120127903/232142745-dfe8aab8-4da0-4e8f-89b6-d153f2024825.png)
 
-![Screenshot9-week-10-challenge](https://user-images.githubusercontent.com/120127903/232142780-b9158992-dced-4da8-be89-e828b81f6023.png)
 
 
 
