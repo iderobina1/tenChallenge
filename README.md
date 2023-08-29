@@ -18,8 +18,6 @@ tenChallegne
 
  * [Contribution-Guidelines](#contribution-guidelines)
 
- * [Test-Instructions](#test-instructions)
-
  * [Questions](#questions)
 
 ## Description
@@ -27,6 +25,7 @@ tenChallegne
 App to create simple logo. It utilizes inquirer to prompt the user within the command line for how they would like their logo to look like. Once the user answers all prompts, then an SVG file is written using their selections to generate a logo.
 
 ## Live Screen Recording of Application Functionality
+
 
 
 ## Examples
@@ -40,12 +39,12 @@ Circle: <a href = "https://drive.google.com/file/d/1hY7xSENdIYqzcsUEWsUavrjREJMU
 
 ## Technologies Used
 
-This project is powered by Node.js v16.20.1, utilizes inquirer v8.2.4 (node package manager), and file system module (node package manager). It also employs jest v29.5.0 (node package manager) for the unit testing conducted in this application. 
+This project is powered by Node.js v16.20.1, utilizes inquirer v8.2.4 (node package manager), and file system module (node package manager). 
 
 ## Installation
 
 1. Clone the repo:
-   git clone: 
+   git clone: https://github.com/iderobina1/tenChallenge
 
 2. Open in VS Code. If you do not have VS code you must install it.
 
@@ -53,30 +52,17 @@ This project is powered by Node.js v16.20.1, utilizes inquirer v8.2.4 (node pack
 
 4. Once node.js v16 is installed, in the terminal, utilize the command npm init -y to initialize and create a package.json where project files will be stored.
 
-5. Next, use the terminal to run the command npm i to install the dependencies associated with this application (developers may need to install inquirer and jest directly from the command line, to do so the command for inquirer will be npm i inquirer@8.2.4 to install v8.2.4 of the inquirer, and npm i jest to install the latest version of jest).
 
-6. To run the application, within the terminal, type the command node index.js.
+5. To run the application, within the terminal, type the command node index.js.
 
 
 ## Usage Information
 
 To run this application, use the command line to navigate to the directory of the application, install all dependencies (npm i), then type the command node index.js. You will then be taken through a series of questions. Once all questions have been answered properly, a message will display to the command line telling you your logo has been generated. Find your new logo in the newly generated SVG file.
 
-For unit testing instructions, navigate to the Test Instructions section.
-
 ## Contribution Guidelines
 
 Edx +TEC Bootcamp 
-
-## Test Instructions
-
-To run unit testing, open the terminal, and use the command npm run test.
-
-As of now there is one test suite with three tests. The test suite is checking for a render() method to return a string for the corresponding SVG file with the given shape color.
-
-
-
-
 
 
 ## Questions
